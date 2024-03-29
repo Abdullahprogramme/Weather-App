@@ -29,8 +29,8 @@ const Navbar = () => {
 
 const Items = () => (
   <motion.ul className="mt-4 space-y-4" initial={{x: '-100%'}} animate={{x: 0}} transition={{duration: 1, ease: 'easeInOut'}}>
-    <li><Link to="/" className="nav-link block py-1 px-3 mt-2 rounded border border-gray-200 hover:border-gray-400 hover:bg-[#7AA2E3] transition duration-200 ease-in-out">Home</Link></li>
-    <li><Link to="/ForecastPage" className="nav-link block py-1 px-3 mt-2 rounded border border-gray-200 hover:border-gray-400 hover:bg-[#7AA2E3] transition duration-200 ease-in-out">Forecast</Link></li>
+    <li><Link to="/" className="nav-link block py-1 px-3 mt-2 rounded border border-gray-200  transition duration-200 ease-in-out" style={{borderColor: 'gray', backgroundColor: '#7AA2E3'}}>Home</Link></li>
+    <li><Link to="/ForecastPage" className="nav-link block py-1 px-3 mt-2 rounded border border-gray-200 transition duration-200 ease-in-out" style={{borderColor: 'gray', backgroundColor: '#7AA2E3'}}>Forecast</Link></li>
   </motion.ul>
 );
 
