@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet';
-import Footer from './Footer';
-// import Navbar from './Navbar';
 
 // icons
 import { 
@@ -15,6 +13,7 @@ import {
     WiNightRainWind, WiNightSnowWind, WiNightSleetStorm,
 } from 'react-icons/wi'; 
 
+
 const HomePage = () => {
     const weather = useSelector((state) => state.weather);
     const dispatch = useDispatch();
@@ -22,9 +21,17 @@ const HomePage = () => {
     const [weatherData, setWeatherData] = useState('');
 
     const getWeather = async (loc) => {
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=f7cf36ce0e5cb90c6e8f7550920cf04e`);
-        const data = await response.json();
-        dispatch({ type: 'SET_WEATHER', payload: data });
+        try {
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            dispatch({ type: 'SET_WEATHER', payload: data });
+        } catch (error) {
+            console.error('Error fetching weather data:', error);
+            alert('City not found! Please enter a valid city name.');
+        }
     }
 
     const handleSearch = (e) => {
@@ -39,11 +46,13 @@ const HomePage = () => {
     };
     
     
+      
 
     return (
         <>
         {/* <Navbar /> */}
-        <div className="mx-auto w-screen min-h-screen p-4  bg-[#D6DAC8] flex flex-col justify-center">
+        <div className="mx-auto w-screen min-h-screen p-4 mb-4 bg-[#D6DAC8] flex flex-col justify-center">
+            
             <Helmet>
                 <title>{location ? `${location} Weather` : 'Weather App'}</title>
                 <meta name="description" content={`Current weather in ${location}`} />
@@ -130,7 +139,7 @@ const HomePage = () => {
             </div>
 
             {/* Temperature, Wind Speed, Humidity */}
-            <div className="grid sm:grid-cols-1 pl-2 pr-2 md:grid-cols-2 gap-4 mt-4 mb-2">
+            <div className="grid sm:grid-cols-1 pl-2 pr-2 md:grid-cols-2 gap-4 mt-4 mb-4">
                 {weather && weather.main && (
                     <>
                         {/* For Temperature */}
@@ -180,7 +189,6 @@ const HomePage = () => {
             </div>
             
         </div>
-        <Footer />
         </>
     );
 }
