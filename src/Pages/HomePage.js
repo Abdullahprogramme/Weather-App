@@ -51,7 +51,7 @@ const HomePage = () => {
     return (
         <>
         {/* <Navbar /> */}
-        <div className="mx-auto w-screen min-h-screen p-4 mb-4 bg-[#D6DAC8] flex flex-col justify-center">
+        <div className="mx-auto w-screen min-h-screen p-4 bg-[#D6DAC8] flex flex-col">
             
             <Helmet>
                 <title>{location ? `${location} Weather` : 'Weather App'}</title>
@@ -79,7 +79,7 @@ const HomePage = () => {
                     type="text" 
                     value={location} 
                     onChange={(e) => setLocation(e.target.value)} 
-                    placeholder="Enter location"  
+                    placeholder="location"  
                 />
                 <button 
                     className="p-2 bg-[#7AA2E3] text-white rounded-lg" 
