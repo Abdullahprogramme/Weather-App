@@ -144,42 +144,42 @@ const HomePage = () => {
                     <>
                         {/* For Temperature */}
                         <motion.div className="bg-white p-4 rounded-lg shadow-lg mx-auto" style={{width: "315px", height: "70px"}}
-                                initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, rotate: 360, scale: 1}} 
+                                initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1}} 
                                 transition={{delay: 1, type: "spring", stiffness: 260, damping: 20}}>
                         <p className="text-[#7AA2E3] text-2xl font-bold ml-2">Temperature: {(weather.main.temp - 273.15).toFixed(2)}°C</p>
                         
                         </motion.div>
                         {/* For Wind Speed */}
                         <motion.div className="bg-white p-4 rounded-lg shadow-lg mx-auto" style={{width: "315px", height: "70px"}}
-                                    initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, rotate: 360, scale: 1 }} 
+                                    initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} 
                                     transition={{delay: 2, type: "spring", stiffness: 260, damping: 20}}>
                             <p className="text-[#7AA2E3] text-2xl font-bold ml-2">Wind Speed: {weather.wind.speed} m/s</p>
                             
                         </motion.div>
                         {/* For Humidity */}
                         <motion.div className="bg-white p-4 rounded-lg shadow-lg mx-auto" style={{width: "315px", height: "70px"}}
-                                    initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, rotate: 360, scale: 1 }} 
+                                    initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} 
                                     transition={{delay: 3, type: "spring", stiffness: 260, damping: 20}}>
                             <p className="text-[#7AA2E3] text-2xl font-bold ml-2">Humidity: {weather.main.humidity}%</p>
 
                         </motion.div>
                     {/* For Feels Like */}
                         <motion.div className="bg-white p-4 rounded-lg shadow-lg mx-auto" style={{width: "315px", height: "70px"}}
-                                initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, rotate: 360, scale: 1}} 
+                                initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1}} 
                                 transition={{delay: 4, type: "spring", stiffness: 260, damping: 20}}>
                         <p className="text-[#7AA2E3] text-2xl font-bold ml-2">Feels like: {(weather.main.feels_like - 273.15).toFixed(2)}°C</p>
                         
                         </motion.div>
                         {/* For Pressure */}
                         <motion.div className="bg-white p-4 rounded-lg shadow-lg mx-auto" style={{width: "315px", height: "70px"}} 
-                                initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, rotate: 360, scale: 1 }} 
+                                initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} 
                                 transition={{delay: 5, type: "spring", stiffness: 260, damping: 20}}>
                             <p className="text-[#7AA2E3] text-2xl font-bold ml-2">Pressure: {weather.main.pressure} hPa</p>
                             
                         </motion.div>
                         {/* For Visisibility */}
                         <motion.div className="bg-white p-4 rounded-lg shadow-lg mx-auto" style={{width: "315px", height: "70px"}}
-                                initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, rotate: 360, scale: 1 }} 
+                                initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} 
                                 transition={{delay: 6, type: "spring", stiffness: 260, damping: 20}}>
                             <p className="text-[#7AA2E3] text-2xl font-bold ml-2">Visibility: {weather.visibility} m</p>
 
