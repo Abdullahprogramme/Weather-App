@@ -64,7 +64,7 @@ const HomePage = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
             >
-                Weather App
+                Current Weather
             </motion.h1>
             {/* w-3/4 lg:w-1/2 xl:w-1/3 mx-auto */}
             <motion.form 
