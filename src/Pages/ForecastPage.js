@@ -113,7 +113,7 @@ const HomePage = () => {
             <div className="grid sm:grid-cols-1 pl-2 pr-2 md:grid-cols-2 gap-4 mt-4 mb-4">
                 {Array.isArray(weather) && weather.map((day, index) => (
                     <motion.div key={index} className="bg-white p-4 rounded-lg shadow-lg mx-auto" style={{width: "200px", height: "100px"}}
-                        initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, rotate: 360, scale: 1}} 
+                        initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1}} 
                         transition={{delay: index + 1, type: "spring", stiffness: 260, damping: 20}}>
                         <h2 className="text-[#7AA2E3] text-2xl font-bold ml-2">{day.date}</h2>
                         <p className="text-[#7AA2E3] font-bold ml-2"><FontAwesomeIcon icon={getTemperatureIcon((day.temp- 273.15).toFixed(2))} /> {(day.temp- 273.15).toFixed(2)}°C</p>
