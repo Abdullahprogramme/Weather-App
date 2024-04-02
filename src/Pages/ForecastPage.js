@@ -6,38 +6,7 @@ import { format } from 'date-fns';
 
 // icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBolt, faCloudRain, faCloudShowersHeavy, faSmog, faWind, faPooStorm } from '@fortawesome/free-solid-svg-icons';
-import { faSun, faCloud, faSnowflake, faTemperatureHigh, faTemperatureLow } from '@fortawesome/free-solid-svg-icons';
-
-function getWeatherIcon(weather) {
-    switch (weather.toLowerCase()) {
-        case 'clear':
-            return faSun;
-        case 'clouds':
-            return faCloud;
-        case 'rain':
-            return faCloudRain;
-        case 'snow':
-            return faSnowflake;
-        case 'thunderstorm':
-            return faBolt;
-        case 'drizzle':
-            return faCloudShowersHeavy;
-        case 'mist':
-        case 'smoke':
-        case 'haze':
-        case 'dust':
-        case 'fog':
-        case 'sand':
-        case 'ash':
-            return faSmog;
-        case 'squall':
-        case 'tornado':
-            return faWind;
-        default:
-            return faPooStorm; // Placeholder for unknown weather types
-    }
-}
+import { faTemperatureHigh, faTemperatureLow } from '@fortawesome/free-solid-svg-icons';    
 
 function getTemperatureIcon(temp) {
     return temp > 20 ? faTemperatureHigh : faTemperatureLow;
@@ -58,7 +27,6 @@ const HomePage = () => {
             const dailyData = aggregateDailyData(data.list);
             dispatch({ type: 'SET_WEATHER', payload: dailyData });
         } catch (error) {
-            console.error('Error fetching weather data:', error);
             alert('City not found! Please enter a valid city name.');
         }
     }
@@ -71,6 +39,7 @@ const HomePage = () => {
                 date: format(new Date(dayData.dt * 1000), 'EEEE'),
                 temp: dayData.main.temp,
                 weather: dayData.weather[0].main,
+                icon: dayData.weather[0].icon,
             });
         }
         return dailyData;
@@ -148,8 +117,10 @@ const HomePage = () => {
                         transition={{delay: index + 1, type: "spring", stiffness: 260, damping: 20}}>
                         <h2 className="text-[#7AA2E3] text-2xl font-bold ml-2">{day.date}</h2>
                         <p className="text-[#7AA2E3] font-bold ml-2"><FontAwesomeIcon icon={getTemperatureIcon((day.temp- 273.15).toFixed(2))} /> {(day.temp- 273.15).toFixed(2)}°C</p>
-                        <p className="text-[#7AA2E3] font-bold ml-2"><FontAwesomeIcon icon={getWeatherIcon(day.weather)} /> {day.weather}</p>
-                    </motion.div>
+                        <p className="text-[#7AA2E3] font-bold ml-2 flex items-center">
+                            <img src={`http://openweathermap.org/img/w/${day.icon}.png`} alt="Weather icon" style={{width: '30px', height: '20px', marginRight: '10px'}} /> {day.weather}
+                        </p>
+                </motion.div>
                 ))}
             </div>
 
