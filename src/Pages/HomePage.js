@@ -51,7 +51,7 @@ const HomePage = () => {
     return (
         <>
         {/* <Navbar /> */}
-        <div className="mx-auto w-screen min-h-screen p-4 bg-[#D6DAC8] flex flex-col">
+        <div className="mx-auto w-screen min-h-screen p-4 flex flex-col">
             
             <Helmet>
                 <title>{location ? `${location} Weather` : 'Weather App'}</title>
@@ -59,7 +59,7 @@ const HomePage = () => {
             </Helmet>
             
             <motion.h1 
-                className="text-4xl font-bold text-[#7AA2E3] text-center mt-1"
+                className="text-4xl font-bold text-[#135D66] text-center mt-1"
                 initial={{ y: -50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
@@ -75,7 +75,7 @@ const HomePage = () => {
                 transition={{ duration: 0.5 }}
             >
                 <input 
-                    className="border-0 bg-[#D6DAC8] rounded-lg p-2 w-1/2 mr-2 placeholder-black"
+                    className="border-0 bg-[#D6DAC8] rounded-lg p-2 w-1/2 mr-2 placeholder-black placeholder-bold"
                     type="text" 
                     value={location} 
                     onChange={(e) => setLocation(e.target.value)} 
